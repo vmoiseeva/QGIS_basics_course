@@ -1,4 +1,4 @@
-#кастомные выражения
+# custom expressions
 from qgis.core import *
 from qgis.gui import *
 
@@ -7,7 +7,7 @@ def my_func(value1, value2, feature, parent):
     return value1 + value2
 
 
-#для работы с геометрией
+# to work with geometry
 @qgsfunction(args='auto', group='MyNewFunctions', usesgeometry= True)
 
 #processing.algorithmHelp("qgis:polygonize")
@@ -32,16 +32,16 @@ processing.run("qgis:selectbylocation", {'INPUT': polygons_layer, 'PREDICATE': 0
 
 topo_list.append(outputFolder + f'topoyarus_{i}.shp')
 
-#вывод сообщения в консоль
+# console output
 #QgsMessageLog.logMessage(str(polygons_layer.featureCount()), "console")
-#объединение слоев в 1
+# merge layers into 1
 processing.runAndLoadResults("qgis:mergevectorlayers", {'LAYERS': topo_list, 'CRS': polygons_layer.crs(), 'OUTPUT': outputFolder + 'topoyarusi.shp'})
 
-#удаление солев из файловой системы
+# remove layers from the file system
 for ty in topo_list:
     QgsVectorFileWriter.deleteShapeFile(ty)
 
-#раскраска по уникальным значениям
+# colour by unique values
 from random import randrange
 layers = QgsProject.instance().mapLayersByName('topoyarusi')
 topo_layer = layers[0]
