@@ -1,6 +1,6 @@
 # QGIS basics course
 
-The repository contains a collection of Python scripts for basic level geospatial analysis and QGIS plugin development. The scripts were written as part of an introductory course in geospatial data processing and visualisation using QGIS and Python. 
+The repository contains a collection of Python scripts for basic level geospatial analysis and QGIS plugin development. The scripts were written as part of an introductory course in geospatial data processing and visualisation using QGIS and Python at the European University at Saint Petersburg. 
 
 ## 1. Basic Operations
 
